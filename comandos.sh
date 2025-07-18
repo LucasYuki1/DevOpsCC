@@ -6,7 +6,7 @@
 # Este script é um resumo funcional dos conceitos essenciais de Shell
 # Scripting abordados, servindo como um "cheat sheet" para consulta rápida.
 #
-# Autor: [Lucas Yuki]
+# Autor: [Seu Nome/Apelido aqui]
 # Data: 18/07/2025
 # ==============================================================================
 
@@ -120,6 +120,23 @@ function verificar_diretorio() {
     done
 }
 
+# Caso queira usar o while ao invés do for, pode fazer o seguinte:
+
+# function verificar_diretorio(){
+#   local diretorio="$1"
+#   local arquivos=("$diretorio"/*)
+#   local i=0
+#   local arquivo
+#   while [ $i -lt ${#arquivos[@]} ]; do           # ${#arquivos[@]} serve para pegar o tamanho do array
+#       arquivo="${arquivos[$i]}"
+#       if test -f "$arquivo"; then
+#           verificar_conflito "$arquivo"
+#       elif
+#           verificar_diretorio "$arquivo"
+#       fi
+#       ((i++))                                 # Adiciona 1 para o valor i
+#   done
+# }
 
 # --- PONTO DE ENTRADA DO SCRIPT ---
 echo "Iniciando verificação no diretório: $1"
