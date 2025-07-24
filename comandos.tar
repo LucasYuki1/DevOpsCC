@@ -1,0 +1,24 @@
+// Utilize esse comando para criar um agrupador compacto para mover pastas
+// -c  = create
+// -z  = comprimir com gzip
+// -f  = file     nomeia o arquivo
+
+tar -czf nomeArquivo.tar.gz arquivo.txt outroarquivo.extensao  
+
+// Para extrair o arquivo:
+
+tar -xzf nomeArquivo.tar.gz
+
+// -x  = extract
+
+
+// Preferir uma abordagem mais moderna tem o comando:
+// -c  = create
+// -J  = zip moderno versão melhorada do bzip2
+// -f  = file
+
+tar -cJf nomeArquivo.tar.gz arquivo.txt outroarquivo.extensao
+
+// Para extrair o arquivo:
+
+tar -xJf nomeArquivo.tar.gz

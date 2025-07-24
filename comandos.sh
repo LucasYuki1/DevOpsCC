@@ -143,6 +143,61 @@ echo "Iniciando verificação no diretório: $1"
 verificar_diretorio "$1"
 echo "Verificação concluída."
 
+#========================================================================================
+
+# monitoramento dos processos com consumo de memória
+#!/bin/bash
+
+# Definimos o caminho para o arquivo de saída
+output_file="/caminho/do/seu/diretorio/top_processes_$(date +\%Y\%m\%d_\%H\%M).txt"
+
+# Listamos os 15 processos com maior consumo de memória e salvamos no arquivo de saída
+ps -e -o pid,%mem --sort=-%mem | head -n 16 > "$output_file"
+
+#=======================================================================================
+
+# utilização do comando ps para listar processos em execução da CPU
+
+#!/bin/bash
+echo "Top 5 processos por uso de CPU:"
+ps aux --sort=-%cpu | head -n 6
+
+#=======================================================================================
+
+# Para o monitoramento de memória, substituir "cpu" por "mem"
+##!/bin/bash
+echo "Top 5 processos por uso de memória:"
+ps aux --sort=-%mem | head -n 6
+
+#=======================================================================================
+
+# Verificar se o servidor web está em execução
+
+#!/bin/bash
+processo="nginx"
+if pgrep $processo > /dev/null; then      # Uso de pgrep para não encontrar o comando grep nginx na resposta
+  echo "$processo está em execução."
+else
+  echo "$processo não está em execução."
+fi
+
+#=======================================================================================
+
+# Identificação de logs com processo de erro
+
+tail -n 10 /var/log/syslog | grep "error"
+#        î___Note que esse valor é a quantidade de linhas que serão mostradas do log de erro
+
+#=======================================================================================
+
+# Caso queira monitorar e gravar as mensagens de erros em um arquivo, o seguinte script pode ser utilizado:
+
+#!/bin/bash
+echo "Mensagens de erro - $(date)" >> /caminho/do/log_monitorado.txt
+tail -n 5 /var/log/syslog | grep "error" >> /caminho/do/log_monitorado.txt
+
+#=======================================================================================
+
 # ==============================================================================
 # FIM DO GUIA
 # ==============================================================================
