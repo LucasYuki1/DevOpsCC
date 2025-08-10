@@ -6,7 +6,7 @@
 # Este script é um resumo funcional dos conceitos essenciais de Shell
 # Scripting abordados, servindo como um "cheat sheet" para consulta rápida.
 #
-# Autor: [Seu Nome/Apelido aqui]
+# Autor: Lucas Yuki
 # Data: 18/07/2025
 # ==============================================================================
 
